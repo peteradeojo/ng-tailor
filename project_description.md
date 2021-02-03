@@ -42,3 +42,6 @@ A vendor on the platform will be
   
 ### Non-Essentials
 - able to upload available styles and designs (possible future version)
+
+# Major Decisions to make
+- Frontend. React? or any other framework? Or none at all
