@@ -1,9 +1,15 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const path = require('path');
+const debug = require('debug')('api:user route');
+// const fs = require('fs');
 
+const router = express.Router();
+
+const UserController = require('../controllers/users.controller');
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', UserController.getCustomers);
 
+router.post('/addcustomer', UserController.createCustomer);
+
+router.get('/:id', UserController.getOneCustomer);
 module.exports = router;
