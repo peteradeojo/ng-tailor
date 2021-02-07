@@ -23,6 +23,10 @@ const CustomerSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: 'Measurements',
 	},
+	preferredVendors: {
+		type: [Schema.Types.ObjectId],
+		ref: 'Vendors',
+	},
 });
 
 module.exports = mongoose.model('Customer', CustomerSchema);

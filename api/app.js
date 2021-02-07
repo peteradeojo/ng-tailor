@@ -9,15 +9,22 @@ const debug = require('debug')('api:app.js');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const vendorRouter = require('./routes/vendors');
 
 const app = express();
 
+if (app.get('env') !== 'production') {
+	const dotenv = require('dotenv');
+	dotenv.config({ path: path.join(__dirname, 'config.env') });
+}
+
 (async () => {
 	try {
-		const connect = await mongoose.connect('mongodb://localhost:27017/tailor', {
+		const connect = await mongoose.connect(process.env.MONGO_URI, {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 			useCreateIndex: true,
+			useFindAndModify: false,
 		});
 	} catch (err) {
 		console.log(err.message);
@@ -37,6 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/vendors', vendorRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -12,4 +12,6 @@ router.get('/', UserController.getCustomers);
 router.post('/addcustomer', UserController.createCustomer);
 
 router.get('/:id', UserController.getOneCustomer);
+router.post('/:id/addpreferredvendor', UserController.addPreferredVendor);
+
 module.exports = router;

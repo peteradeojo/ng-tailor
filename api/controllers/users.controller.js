@@ -35,4 +35,13 @@ controller.createCustomer = async (req, res, next) => {
 	}
 };
 
+controller.addPreferredVendor = async (req, res, next) => {
+	try {
+		const result = await UserService.addPreferredVendor(req.body);
+		return res.status(200).json({ status: 200, data: result });
+	} catch (err) {
+		return res.status(400).json({ status: 400, message: err.message });
+	}
+};
+
 module.exports = controller;
