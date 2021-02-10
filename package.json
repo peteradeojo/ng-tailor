@@ -1,0 +1,49 @@
+{
+	"name": "ng-tailor-project",
+	"version": "1.0.0",
+	"description": "tailoring app",
+	"main": "app.js",
+	"scripts": {
+		"test": "SET DEBUG=app,app:* & nodemon app.js",
+		"init-lint": "eslint --init"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/peteradeojo/ng-tailor.git"
+	},
+	"keywords": [
+		"tailor",
+		"fashion",
+		"clothing"
+	],
+	"author": "Ade-Ojo Peter",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/peteradeojo/ng-tailor/issues"
+	},
+	"homepage": "https://github.com/peteradeojo/ng-tailor#readme",
+	"dependencies": {
+		"chalk": "^4.1.0",
+		"cookie-parser": "^1.4.5",
+		"debug": "^4.3.1",
+		"express": "^4.17.1",
+		"express-session": "^1.17.1",
+		"mongoose": "^5.11.15",
+		"morgan": "^1.10.0",
+		"passport": "^0.4.1",
+		"pug": "^3.0.0"
+	},
+	"devDependencies": {
+		"eslint": "^7.19.0",
+		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-plugin-import": "^2.22.1",
+		"nodemon": "^2.0.7"
+	},
+	"nodemonConfig": {
+		"delay": 2000,
+		"ext": ".env, .js",
+		"ignore": [
+			"public"
+		]
+	}
+}
